@@ -1,0 +1,4 @@
+[submodule "unified-instantsearch-ecommerce"]
+	path = unified-instantsearch-ecommerce
+	url = git@github.com:tkrugg/unified-instantsearch-ecommerce.git
+	branch = next-sfcc

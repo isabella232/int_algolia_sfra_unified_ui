@@ -1,7 +1,7 @@
 {
     "name": "int_algolia_sfra_unified_ui",
     "version": "20.1.0",
-    "description": "Algolia SFRA Link Cartridge",
+    "description": "Algolia SFRA Link Cartridge With Unified UI",
     "scripts": {
         "test": "sgmf-scripts --test test/unit/**/*.js",
         "test:integration": "sgmf-scripts --integration 'test/integration/**/*.js'",
