@@ -34,6 +34,6 @@
     
     ![Screenshot Cartridge Path](./screenshot-cartridge-path.png)
     
-🎉 Now the Unified UI catridge is live on your site.
+🎉  Now the Unified UI catridge is live on your site.
                                                                                                                                        
                                                                                                                                  
