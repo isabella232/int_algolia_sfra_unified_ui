@@ -1,6 +1,8 @@
 # int_algolia_sfra_unified_ui
 
-## Setup
+## Setup Instructions
+
+### A. Download an upload the cartridge to your Sandbox
 
 1. Clone this repository including git submodules
     ```sh
@@ -21,4 +23,17 @@
     ```sh
     $ npm run uploadCartridge
     ```
+   
+### B. Assign the cartridge to your site
 
+1. In your sandbox Business Manager, go to **Administration → Sites → Manage Sites**.
+2. Select your site
+3. Under the **Settings** tab, in the **Catridges** field, add `int_algolia_sfra_unified_ui` before `int_algolia_sfra:int_algolia`.
+
+    Your result path should contain the following: `int_algolia_sfra_unified_ui:int_algolia_sfra:int_algolia`
+    
+    ![Screenshot Cartridge Path](./screenshot-cartridge-path.png)
+    
+🎉 Now the Unified UI catridge is live on your site.
+                                                                                                                                       
+                                                                                                                                 
