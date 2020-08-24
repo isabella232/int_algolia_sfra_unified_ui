@@ -1,0 +1,59 @@
+<!-- Start of Algolia dependencies -->
+<link rel="stylesheet" href="${URLUtils.staticURL('/algolia/search.css')}" />
+<isset name="algoliaData" value="${require('*/cartridge/scripts/algolia/lib/algoliaData')}" scope="page" />
+
+<isif condition="${algoliaData.getPreference('Enable')}">
+    <script src="${URLUtils.staticURL('/algolia/search.js')}"></script>
+    <script>
+        var algoliaData = {
+            "enable": ${algoliaData.getPreference('Enable')},
+            "locale": "${request.getLocale()}",
+            "currencyCode": "${request.getSession().getCurrency().getCurrencyCode()}",
+            "currencySymbol": '<isprint value="${request.getSession().getCurrency().getSymbol()}" encoding="jshtml" />',
+            "productsIndex": "${algoliaData.calculateIndexId('products')}",
+            "categoriesIndex": "${algoliaData.calculateIndexId('categories')}",
+            "quickViewUrlBase": "${URLUtils.url('Product-ShowQuickView')}",
+            "noImages": {
+                "large": "${URLUtils.staticURL('/images/noimagelarge.png')}",
+                "medium": "${URLUtils.staticURL('/images/noimagemedium.png')}",
+                "small": "${URLUtils.staticURL('/images/noimagesmall.png')}"
+            }
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var appId = "${algoliaData.getPreference('ApplicationID')}";
+            var searchApiKey = "${algoliaData.getPreference('SearchApiKey')}";
+            var currencyCode = "${request.getSession().getCurrency().getCurrencyCode()}";
+            var productsIndexName = "${algoliaData.calculateIndexId('products')}";
+            var categoriesIndexName = "${algoliaData.calculateIndexId('categories')}";
+
+            window.UnifiedUI.start({
+                inputContainer: ".site-search",
+                appId: appId,
+                searchApiKey: searchApiKey,
+                currencyCode: currencyCode,
+                index: {
+                      indexName: productsIndexName,
+                      searchParameters: {
+                        analytics: true,
+                        clickAnalytics: true,
+                        hitsPerPage: 18,
+                        attributesToSnippet: ['short_description:25'],
+                      },
+                },
+                sorts: [
+                  {
+                    label: 'Price ascending',
+                    value:  "${productsIndexName}__price_${currencyCode}_asc",
+                  },
+                  {
+                    label: 'Price descending',
+                    value:  "${productsIndexName}__price_${currencyCode}_desc",
+                  },
+                ]
+            });
+        });
+    </script>
+</isif>
+<!-- End of Algolia dependencies -->
