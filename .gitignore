@@ -11,3 +11,4 @@ cartridges/bm_app_storefront_base/
 dw.json
 .vscode/
 bin/*
+.DS_Store
